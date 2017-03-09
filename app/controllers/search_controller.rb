@@ -19,7 +19,10 @@ class SearchController < ApplicationController
 
       uri = URI.parse(final_url)
       response = Net::HTTP.get(uri)
-      @response = response
+
+      jsonResponse = JSON.parse(response)
+
+      @documents = jsonResponse["response"]["docs"]
     end
   end
 end

@@ -1,3 +1,12 @@
+<%= render 'search' %>
+
 <h1>RESULT</h1>
 
-<%= @response %>
+<% @documents.each do |document| %>
+    <h3><%= document["title"][0] %></h3>
+
+    <% document["pdfLink"].each do |link| %>
+      <a href="#"><%= link %></a><br><br>
+    <% end %>
+
+<% end %>
