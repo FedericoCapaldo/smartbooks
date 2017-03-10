@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'users/new'
+  resources :users
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'search#index'
@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   get '/result' => 'search#result'
 
   get '/signup', to: 'users#new' # match '/signup', to: 'users#new'
-  
+
 end
