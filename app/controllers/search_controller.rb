@@ -15,9 +15,11 @@ class SearchController < ApplicationController
       @documents = jsonResponse["response"]["docs"]
     end
   end
-  
-  private
 
+
+
+
+  private
   def gen_url(titleParam, authorParam)
     base_url = "http://ec2-52-40-24-42.us-west-2.compute.amazonaws.com:8983/solr/TEXTBOOK_DB/select?indent=on&q="
     wildcard = "*"
