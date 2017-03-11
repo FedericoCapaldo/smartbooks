@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170310220955) do
+ActiveRecord::Schema.define(version: 20170311033242) do
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -21,7 +21,9 @@ ActiveRecord::Schema.define(version: 20170310220955) do
     t.string   "password_digest"
     t.string   "password"
     t.string   "password_confirmation"
+    t.string   "remember_token"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["remember_token"], name: "index_users_on_remember_token"
   end
 
 end
