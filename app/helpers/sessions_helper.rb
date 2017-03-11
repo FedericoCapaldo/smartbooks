@@ -22,4 +22,19 @@ module SessionsHelper
   def signed_in?
     !current_user.nil?
   end
+
+  def current_user?(user)
+    user == current_user # current_user being the method above
+  end
+
+
+  def store_location
+    session[:return_to] = request.fullpath
+  end
+
+  def return_back_or(default)
+    redirect_to(session[:return_to] || default)
+    session.delete(:return_to)
+  end
+
 end
