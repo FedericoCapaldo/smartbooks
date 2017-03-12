@@ -1,11 +1,18 @@
-<h1><%= @advertisement.title %></h1>
-<p>$<%= @advertisement.price %></p>
-<br>
-<p><%= @advertisement.content %></p>
-<b>preferred contact:</b> <span><%= @advertisement.preferred_contact%></span>
-<br>
-<b>location:</b> <span><%= @advertisement.location %></span>
-<p>Posted <%= @advertisement.created_at.to_date %> (<%= time_ago_in_words(@advertisement.created_at)%> ago)</p>
+<div class="row">
+  <div class="offset3 span6">
+    <h1><%= @advertisement.title %></h1>
+    <hr>
+    <h3>$ <%= @advertisement.price %></h3>
+    <p><%= @advertisement.content %></p>
+
+    <br>
+    <p><b>preferred contact:</b> <%= @advertisement.preferred_contact%></p>
+    <p><b>location:</b> <%= @advertisement.location %></p>
+    <p>Posted <%= @advertisement.created_at.to_date %> (<%= time_ago_in_words(@advertisement.created_at)%> ago)</p>
+  </div>
+</div>
+
+
 
 <% if current_user?(@advertisement.user) %>
   <%= link_to "edit ad", edit_advertisement_path(@advertisement.id) %>

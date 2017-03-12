@@ -78,6 +78,7 @@ nav ul {
 .gravatar {
   float: left;
   margin-right: 10px;
+  width: 200px;
 }
 
 aside {
@@ -87,6 +88,23 @@ aside {
     }
 }
 
+/* user profile */
+.user {
+  padding:50px;
+
+  border: 2px solid #999;
+  border-radius: 5px;
+}
+
+.user-inner {
+  margin-bottom: 20px;
+}
+
+.user-info {
+  display: grid;
+}
+
+/* misc */
 
 @mixin box_sizing
 {

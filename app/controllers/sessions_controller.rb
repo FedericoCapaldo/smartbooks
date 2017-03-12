@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       sign_in user
       return_back_or user
     else
-    flash[:error] = "Invalid email/password combination"
+    flash[:danger] = "Invalid email/password combination"
     render 'new'
     end
   end
