@@ -9,5 +9,5 @@
 
 <% if current_user?(@advertisement.user) %>
   <%= link_to "edit ad", edit_advertisement_path(@advertisement.id) %>
-  <%= link_to "delete ad", @advertisement, method: :delete, confirmation: "are you sure?", title: @advertisement.title %>
+  <%= link_to "delete ad", @advertisement, method: :delete, data: { confirm: "are you sure?", title: @advertisement.title } %>
 <% end %>

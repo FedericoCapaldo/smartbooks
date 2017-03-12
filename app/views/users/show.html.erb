@@ -10,8 +10,7 @@
 </h1>
 
 <% if ( current_user?(@user) || (current_user.admin? && !current_user?(@user))) %>
-  <!-- <%= link_to "delete", @user, method: :delete, confirm: "are you sure you want to delete your account?" %> -->
-  <a href="/users/<%= @user.id %>" data-method="delete" data-confirm="are you sure?" rel="nofollow">delete account</a>
+  <%= link_to "delete account", @user, method: :delete, data: { confirm: "are you sure?" } %>
 <% end %>
 
 <div class="span8">
