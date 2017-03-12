@@ -37,6 +37,9 @@ gem 'bcrypt', '~> 3.1.7'
 require "net/http"
 require "uri"
 
+gem 'will_paginate', '~> 3.1.0'
+
+gem 'faker', '1.7.3'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record

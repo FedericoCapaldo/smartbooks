@@ -7,8 +7,19 @@
   <br>
   school: <%= @user.school %>
   <br>
-  <% if ( current_user?(@user) || (current_user.admin? && !current_user?(@user))) %>
-    <!-- <%= link_to "delete", @user, method: :delete, confirm: "are you sure you want to delete your account?" %> -->
-    <a href="/users/<%= @user.id %>" data-method="delete" data-confirm="are you sure?" rel="nofollow">delete account</a>
-  <% end %>
 </h1>
+
+<% if ( current_user?(@user) || (current_user.admin? && !current_user?(@user))) %>
+<!-- <%= link_to "delete", @user, method: :delete, confirm: "are you sure you want to delete your account?" %> -->
+<a href="/users/<%= @user.id %>" data-method="delete" data-confirm="are you sure?" rel="nofollow">delete account</a>
+<% end %>
+
+<div class="span8">
+  <% if @user.advertisements.any? %>
+    <h3>My advertisements (<%= @user.advertisements.count %>)</h3>
+    <ol>
+      <%= render @advertisements %>
+    </ol>
+    <%= will_paginate @advertisements %>
+  <% end %>
+</div>
