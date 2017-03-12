@@ -10,11 +10,9 @@
     <p><b>location:</b> <%= @advertisement.location %></p>
     <p>Posted <%= @advertisement.created_at.to_date %> (<%= time_ago_in_words(@advertisement.created_at)%> ago)</p>
   </div>
+
+  <% if current_user?(@advertisement.user) %>
+    <%= link_to "edit ad", edit_advertisement_path(@advertisement.id), class: "btn btn-large btn-primary" %>
+    <%= link_to "delete ad", @advertisement, method: :delete, data: { confirm: "are you sure?", title: @advertisement.title }, class: "btn btn-large btn-primary" %>
+  <% end %>
 </div>
-
-
-
-<% if current_user?(@advertisement.user) %>
-  <%= link_to "edit ad", edit_advertisement_path(@advertisement.id) %>
-  <%= link_to "delete ad", @advertisement, method: :delete, data: { confirm: "are you sure?", title: @advertisement.title } %>
-<% end %>
