@@ -1,0 +1,13 @@
+<h1><%= @advertisement.title %></h1>
+<p>$<%= @advertisement.price %></p>
+<br>
+<p><%= @advertisement.content %></p>
+<b>preferred contact:</b> <span><%= @advertisement.preferred_contact%></span>
+<br>
+<b>location:</b> <span><%= @advertisement.location %></span>
+<p>Posted <%= @advertisement.created_at.to_date %> (<%= time_ago_in_words(@advertisement.created_at)%> ago)</p>
+
+<% if current_user?(@advertisement.user) %>
+  <%= link_to "edit ad", edit_advertisement_path(@advertisement.id) %>
+  <%= link_to "delete ad", @advertisement, method: :delete, confirmation: "are you sure?", title: @advertisement.title %>
+<% end %>
