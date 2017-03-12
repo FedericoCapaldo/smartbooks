@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170311201908) do
+ActiveRecord::Schema.define(version: 20170312075943) do
+
+  create_table "advertisements", force: :cascade do |t|
+    t.string   "title"
+    t.decimal  "price"
+    t.string   "content"
+    t.string   "preferred_contact"
+    t.string   "location"
+    t.integer  "user_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["title", "content"], name: "index_advertisements_on_title_and_content"
+    t.index ["user_id", "created_at"], name: "index_advertisements_on_user_id_and_created_at"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
