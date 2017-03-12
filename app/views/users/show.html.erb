@@ -1,24 +1,33 @@
-<h1>
-  <%= gravatar_for @user %>
-  <br>
-  name: <%= @user.name %>
-  <br>
-  email: <%= @user.email %>
-  <br>
-  school: <%= @user.school %>
-  <br>
-</h1>
+<div class="row">
+  <div class="user">
+    <div class="row user-inner">
+      <div class="gravatar">
+        <%= gravatar_for @user %>
+      </div>
+      <div class="user-info">
+        <h1>name: <%= @user.name %></h1>
+        <h3>email: <%= @user.email %></h3>
+        <h3>school: <%= @user.school %></h3>
+      </div>
+    </div>
+      <% if ( current_user?(@user) || (current_user.admin? && !current_user?(@user))) %>
+        <div class="row">
+          <%= link_to "Edit Profile", edit_user_path(current_user), class: "btn btn-large btn-primary" %>
+          <%= link_to "Delete Profile", @user, method: :delete, data: { confirm: "are you sure?" }, class: "btn btn-large btn-primary"%>
+        </div>
+      <% end %>
+  </div>
+</div>
 
-<% if ( current_user?(@user) || (current_user.admin? && !current_user?(@user))) %>
-  <%= link_to "delete account", @user, method: :delete, data: { confirm: "are you sure?" } %>
-<% end %>
 
-<div class="span8">
-  <% if current_user?(@user) && @user.advertisements.any? %>
-    <h3>My advertisements (<%= @user.advertisements.count %>)</h3>
-    <ol>
-      <%= render @advertisements %>
-    </ol>
-    <%= will_paginate @advertisements %>
-  <% end %>
+<div class="row">
+  <div class="span8">
+    <% if current_user?(@user) && @user.advertisements.any? %>
+      <ol class="advertisements">
+        <h3>My advertisements (<%= @user.advertisements.count %>)</h3>
+        <%= render @advertisements %>
+      </ol>
+      <%= will_paginate @advertisements %>
+    <% end %>
+  </div>
 </div>

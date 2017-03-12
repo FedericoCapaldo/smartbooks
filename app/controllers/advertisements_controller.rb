@@ -15,7 +15,7 @@ class AdvertisementsController < ApplicationController
       flash[:success] = "Advert successfully created!"
       redirect_to @advertisement
     else
-      flash[:error] = "Avert could not be created. Try again!"
+      flash[:danger] = "Avert could not be created. Try again!"
       render 'new'
     end
   end

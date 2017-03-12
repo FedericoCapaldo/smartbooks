@@ -1,4 +1,9 @@
 <li>
-  <%= link_to advertisement.title, advertisement_path(advertisement.id) %>
-  <span>Posted <%=time_ago_in_words(advertisement.created_at)%> ago</span>
+  <span class="content">
+    <%= link_to advertisement.title, advertisement_path(advertisement.id) %>
+  </span>
+
+  <span class="timestamp">
+    Posted <%=time_ago_in_words(advertisement.created_at)%> ago
+  </span>
 </li>

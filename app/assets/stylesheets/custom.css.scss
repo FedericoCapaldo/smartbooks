@@ -1,4 +1,118 @@
-// bootstrap missing
+@import "bootstrap";
+
+/* universal */
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  padding: 60px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}
+
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+/* header */
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  line-height: -1;
+}
+
+#logo hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+nav ul {
+  display: inline-flex;
+}
+
+/* advertisements */
+.advertisements {
+  list-style: none;
+  margin: 10px 0 0 0;
+
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+}
+
+.content {
+  display: block;
+}
+
+.timestamp {
+  color: #999;
+}
+
+.gravatar {
+  float: left;
+  margin-right: 10px;
+  width: 200px;
+}
+
+aside {
+    textarea {
+      height: 100px;
+      margin-bottom: 5px;
+    }
+}
+
+/* user profile */
+.user {
+  padding:50px;
+
+  border: 2px solid #999;
+  border-radius: 5px;
+}
+
+.user-inner {
+  margin-bottom: 20px;
+}
+
+.user-info {
+  display: grid;
+}
+
+/* edit user form */
+
+.edit-gravatar {
+  margin-top: 50px;
+}
+
+
+/* misc */
+
 @mixin box_sizing
 {
   -moz-box-sizing: border-box;
@@ -17,7 +131,7 @@
 /* forms */
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
-  width: 300px;
+  width: 50%;
   padding: 10px;
   height: auto;
   margin-bottom: 15px;

@@ -10,13 +10,14 @@ class SessionsController < ApplicationController
       sign_in user
       return_back_or user
     else
-    flash[:error] = "Invalid email/password combination"
+    flash[:danger] = "Invalid email/password combination"
     render 'new'
     end
   end
 
   def destroy
     sign_out
+    flash[:success] = "Signed out. Hope to see you soon!"
     redirect_to root_path
   end
 

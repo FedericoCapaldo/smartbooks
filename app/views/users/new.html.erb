@@ -1,23 +1,23 @@
 <h1>Sign up</h1>
 
 <div class="row">
-  <div class="span6 offset3">
+  <div class="span6 offset6">
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
-      
-      <%= f.label :name %>
+
+      <p><%= f.label :name %></p>
       <%= f.text_field :name %>
       <br>
-      <%= f.label :email %>
+      <p><%= f.label :email %></p>
       <%= f.text_field :email %>
       <br>
-      <%= f.label :school %>
+      <p><%= f.label :school %></p>
       <%= f.text_field :school %>
       <br>
-      <%= f.label :password %>
+      <p><%= f.label :password %></p>
       <%= f.password_field :password %>
       <br>
-      <%= f.label :password_confirmation, "Confirmation" %>
+      <p><%= f.label :password_confirmation, "Confirmation" %></p>
       <%= f.password_field :password_confirmation %>
       <br>
       <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>

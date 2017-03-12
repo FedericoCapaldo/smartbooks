@@ -4,19 +4,20 @@
   <div class="span6 offset3">
     <%= form_for(@advertisement) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
-      <%= f.label :title %>
+
+      <p><%= f.label :title %></p>
       <%= f.text_field :title, placeholder: "e.g. Grounding for the Metaphysics of Morals by Kant" %>
       <br>
-      <%= f.label :price %>
+      <p><%= f.label :price %></p>
       <%= f.text_field :price, placeholder: "e.g. 12.99"%>
       <br>
-      <%= f.label :content %>
+      <p><%= f.label :content %></p>
       <%= f.text_area :content, placeholder: "e.g. This books is brand new, please contact me via phone 661-XXX or email@email.com" %>
       <br>
-      <%= f.label :preferred_contact %>
+      <p><%= f.label :preferred_contact %></p>
       <%= f.text_field :preferred_contact, placeholder: "email@email.com" %>
       <br>
-      <%= f.label :location %>
+      <p><%= f.label :location %></p>
       <%= f.text_field :location, placeholder: "UCI, Irvine, CA"%>
       <br>
       <%= f.submit "Post Ad!", class: "btn btn-large btn-primary" %>
