@@ -34,13 +34,6 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 
 
-require "net/http"
-require "uri"
-
-gem 'will_paginate', '~> 3.1.0'
-
-gem 'faker', '1.7.3'
-
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
@@ -63,3 +56,12 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+require "net/http"
+require "uri"
+
+gem 'will_paginate', '~> 3.1.0'
+
+gem 'faker', '1.7.3'
+
+gem 'bootstrap-sass', '3.3.7'

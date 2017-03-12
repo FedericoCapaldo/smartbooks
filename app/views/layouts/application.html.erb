@@ -4,9 +4,11 @@
     <title>Smartbooks</title>
     <%= csrf_meta_tags %>
 
-    <!-- <%= stylesheet_link_tag "custom.css.scss" %> -->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
 
   <body>
