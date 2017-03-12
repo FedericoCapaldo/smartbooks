@@ -13,7 +13,7 @@ class AdvertisementsController < ApplicationController
     @advertisement = current_user.advertisements.build(advertisements_params)
     if @advertisement.save
       flash[:success] = "Advert successfully created!"
-      redirect_to root_path
+      redirect_to @advertisement
     else
       flash[:error] = "Avert could not be created. Try again!"
       render 'new'
