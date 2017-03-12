@@ -1,6 +1,12 @@
 <h1>
   <%= gravatar_for @user %>
-  <%= @user.name %> <%= @user.email %>
+  <br>
+  name: <%= @user.name %>
+  <br>
+  email: <%= @user.email %>
+  <br>
+  school: <%= @user.school %>
+  <br>
   <% if ( current_user?(@user) || (current_user.admin? && !current_user?(@user))) %>
     <!-- <%= link_to "delete", @user, method: :delete, confirm: "are you sure you want to delete your account?" %> -->
     <a href="/users/<%= @user.id %>" data-method="delete" data-confirm="are you sure?" rel="nofollow">delete account</a>
