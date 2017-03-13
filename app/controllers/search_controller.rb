@@ -16,28 +16,25 @@ class SearchController < ApplicationController
     end
   end
 
-
-
-
   private
-  def gen_url(titleParam, authorParam)
-    base_url = "http://ec2-52-40-24-42.us-west-2.compute.amazonaws.com:8983/solr/TEXTBOOK_DB/select?indent=on&q="
-    wildcard = "*"
-    title = titleParam.strip.gsub(/\s+/, "\\ ")
-    author = authorParam.strip.gsub(/\s+/, "\\ ")
-    json_format_r = "&wt=json"
+    def gen_url(titleParam, authorParam)
+      base_url = "http://ec2-52-40-24-42.us-west-2.compute.amazonaws.com:8983/solr/TEXTBOOK_DB/select?indent=on&q="
+      wildcard = "\""
+      title = titleParam.strip
+      author = authorParam.strip
+      json_format_r = "&wt=json"
 
-    titleQuery = "title:" + wildcard + title + wildcard
-    authorQuery = "author:" + wildcard + author + wildcard
-    final_url = base_url + (title.empty? ? "" : titleQuery ) + ((!title.empty? && !author.empty?) ? " AND " : "") + (author.empty? ? "" : authorQuery) + json_format_r
+      titleQuery = "title:" + wildcard + title + wildcard
+      authorQuery = "author:" + wildcard + author + wildcard
+      final_url = base_url + (title.empty? ? "" : titleQuery ) + ((!title.empty? && !author.empty?) ? " AND " : "") + (author.empty? ? "" : authorQuery) + json_format_r
 
-    final_url
-  end
+      final_url
+    end
 
-  def make_solr_request(url)
-    uri = URI.parse(url)
-    response = Net::HTTP.get(uri)
-    response
-  end
+    def make_solr_request(url)
+      uri = URI.parse(url)
+      response = Net::HTTP.get(uri)
+      response
+    end
 
 end

@@ -1,16 +1,15 @@
 <%= render 'search' %>
 
-
 <% if @documents.empty? %>
   <h1>Your Search Returned no results</h1>
 <% else %>
-  <h1>RESULT</h1>
+  <h1>RESULTS</h1>
   <% @documents.each do |document| %>
-      <h3><%= document["title"][0] %></h3>
-
+      <h3>title: <%= document["title"][0] %></h3>
+      <h4>author: <%= document["author"][0] %></h4>
+      <hr>
       <% document["pdfLink"].each do |link| %>
-        <a href="#"><%= link %></a><br><br>
+        <a href="<%= link %>"><%= link %></a><br><br>
       <% end %>
-
   <% end %>
 <% end %>
