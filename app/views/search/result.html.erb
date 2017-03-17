@@ -1,15 +1,35 @@
 <%= render 'search' %>
 
-<% if @documents.empty? %>
-  <h1>Your Search Returned no results</h1>
-<% else %>
+<% if !@documents.nil? %>
   <h1>RESULTS</h1>
   <% @documents.each do |document| %>
-      <h3>title: <%= document["title"][0] %></h3>
-      <h4>author: <%= document["author"][0] %></h4>
+      <% if document["title"] %>
+        <h3>title: <%= document["title"][0] %></h3>
+      <% end %>
+      <% if document["author"] %>
+        <h4>author: <%= document["author"][0] %></h4>
+      <% end %>
       <hr>
       <% document["pdfLink"].each do |link| %>
         <a href="<%= link %>"><%= link %></a><br><br>
       <% end %>
   <% end %>
+<% elsif !@ads.nil? %>
+  <% @ads.each do |ad| %>
+
+    <% if ad["title"] %>
+      <h3><a href="#">title: <%= ad["title"] %></a></h3>
+    <% end %>
+
+    <% if ad["price"] %>
+      <h4>price: $ <%= ad["price"] %></h4>
+    <% end %>
+
+    <% if ad["content"] %>
+      <p><%= ad["content"] %></p>
+    <% end %>
+    <hr>
+  <% end %>
+<% else %>
+  <h1>Your Search Returned no results</h1>
 <% end %>

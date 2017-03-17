@@ -1,12 +1,31 @@
 <div class="row">
   <div class="span6 offset3">
+    <h1>Search Books</h1>
     <form class="" action="/result" method="get">
       <p>Title: </p>
       <input type="text" name="title">
       <br><br>
       <p>Author: </p>
       <input type="text" name="author">
-      <!-- Subject: <input type="text" name="" value=""> -->
+      <br>
+
+      <p>Subject: </p>
+      <select name="subject">
+        <option value=""></option>
+        <% if @subjects %>
+          <%= @subjects.each do |subject| %>
+            <option value="<%= subject %>"><%= subject %></option>
+          <% end %>
+        <% end %>
+      </select>
+      <br>
+
+      <p>Type of Search:</p>
+      <select name="type">
+        <option value="free">Free (online pdfs)</option>
+        <option value="paid">Ads (paid books by other students)</option>
+      </select>
+
       <br><br>
       <input type="submit" value="Submit">
     </form>
