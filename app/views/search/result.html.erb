@@ -28,6 +28,14 @@
     <% if ad["content"] %>
       <p><%= ad["content"] %></p>
     <% end %>
+
+    <% if ad["preferred_contact"] %>
+      <span><b>contact:</b></span> <span><%= ad["preferred_contact"] %></span>
+    <% end %>
+    <br>
+    <% if ad["location"] %>
+      <span><b>location:</b></span> <span><%= ad["location"] %></span>
+    <% end %>
     <hr>
   <% end %>
 <% else %>

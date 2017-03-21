@@ -9,7 +9,7 @@ class AdvertisementsController < ApplicationController
   end
 
   def add_free_book
-    if params[:title] == "" || params[:author] = "" || params[:subject] == "" || params[:pdfLink] == ""
+    if params[:title] == "" || params[:author] == "" || params[:subject] == "" || params[:pdfLink] == ""
       flash[:danger] = "One or more field missing"
       redirect_to '/advertisement/free'
     else
