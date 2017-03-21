@@ -18,9 +18,9 @@ class SearchController < ApplicationController
         @documents = jsonResponse["response"]["docs"] unless jsonResponse["response"]["docs"].count == 0
       end
     elsif params[:type] == "paid"
-        ads_by_title = Advertisement.where("title like ? OR content like ?", "%#{params[:title]}%", "%#{params[:title]}%") unless params[:title] == ""
+        ads_by_title = Advertisement.where("title like ? OR content like ? ", "%#{params[:title]}%", "%#{params[:title]}%").order('price asc') unless params[:title] == ""
 
-        ads_by_author = Advertisement.where("title like ? OR content like ? ", "%#{params[:author]}%", "%#{params[:author]}%") unless params[:author] == "" || params[:author] == params[:title]
+        ads_by_author = Advertisement.where("title like ? OR content like ? ", "%#{params[:author]}%", "%#{params[:author]}%").order('price asc') unless params[:author] == "" || params[:author] == params[:title]
 
         if ads_by_title && ads_by_author
           @ads = ads_by_title + ads_by_author
