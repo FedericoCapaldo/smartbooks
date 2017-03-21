@@ -5,6 +5,21 @@ class AdvertisementsController < ApplicationController
   def index
   end
 
+  def free
+  end
+
+  def add_free_book
+    if params[:title] == "" || params[:author] = "" || params[:subject] == "" || params[:pdfLink] == ""
+      flash[:danger] = "One or more field missing"
+      redirect_to '/advertisement/free'
+    else
+      response = post_solr_request(params[:title], params[:author], params[:subject], params[:pdfLink].split(/\r?\n/))
+      puts response
+      flash[:success] = "Your newly added book is now searchable!"
+      redirect_to current_user
+    end
+  end
+
   def new
     @advertisement = Advertisement.new
   end
@@ -51,5 +66,23 @@ class AdvertisementsController < ApplicationController
     def correct_user
       @advertisement = current_user.advertisements.find_by_id(params[:id])
       redirect_to root_path if @advertisement.nil?
+    end
+
+    def post_solr_request(title, author, subject, links)
+      uri = URI.parse("http://ec2-52-40-24-42.us-west-2.compute.amazonaws.com:8983/solr/TEXTBOOK_DB/update/json/docs?commit=true")
+      data = "{
+          \"title\":\"#{title}\",
+          \"author\":\"#{author}\",
+          \"subject\":\"#{subject}\",
+          \"user\":\"#{current_user.email}\",
+          \"password\":\"filtered\",
+          \"pdfLink\": #{links}
+        }"
+      req = Net::HTTP::Post.new(uri, {'Content-Type' => 'application/json'})
+      req.body = data
+
+      http = Net::HTTP.new(uri.host, uri.port)
+      response = http.request(req)
+      response
     end
 end
